@@ -1,5 +1,6 @@
-import org.junit.Test;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -15,13 +16,23 @@ public class TieredCakeTest {
     }
     @Test
     public void canGetTiers(){
-        tieredCake = new TieredCake("Kinder tower","Kinder choco", false, false, 3);
         assertThat(tieredCake.getTiers()).isEqualTo(3);
     }
     @Test
     public void canAddCakeStand(){
-        tieredCake = new TieredCake("Kinder tower","Kinder choco", false, false, 3);
         assertThat(tieredCake.addCakeStand()).isEqualTo("This cake comes with a cake stand!");
+    }
+    @Test
+    public void canAddIcing(){
+        assertThat(tieredCake.addIcing()).isEqualTo("Use more icing for tiered cakes.");
+    }
+    @Test
+    public void canDisplay(){
+        assertThat(tieredCake.display(1)).isEqualTo("Display 1 cake by the shop window.");
+    }
+    @Test
+    public void canSell(){
+        assertThat(tieredCake.sell(5.00, 2)).isEqualTo("Sell 2 tiered cakes for £10.0");
     }
 
 }
